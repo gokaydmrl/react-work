@@ -6,15 +6,15 @@ import "./App.css";
 function App() {
   const [count, setCount] = useState(0);
 
-  function api<T>(url: string): Promise<T> {
-    return fetch(url).then((response) => {
-      if (!response.ok) {
-        throw new Error(response.statusText);
-      }
+  // function api<T>(url: string): Promise<T> {
+  //   return fetch(url).then((response) => {
+  //     if (!response.ok) {
+  //       throw new Error(response.statusText);
+  //     }
 
-      return response.json() as Promise<T>;
-    });
-  }
+  //     return response.json() as Promise<T>;
+  //   });
+  // }
   function useApi() {
     const api = useCallback(<T,>(url: string): Promise<T> => {
       return fetch(url).then((response) => {

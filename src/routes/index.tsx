@@ -17,11 +17,11 @@ export const Route = createFileRoute("/")({
   // },
 });
 
-interface ApiError extends AxiosError {}
+// interface ApiError extends AxiosError {}
 
-interface ApiResult extends AxiosResponse {
-  error?: ApiError;
-}
+// interface ApiResult extends AxiosResponse {
+//   error?: ApiError;
+// }
 
 function RouteComponent() {
   //    const [val, setVal] = useState("");
@@ -42,11 +42,8 @@ function RouteComponent() {
 
   const getCats = async () => {
     try {
-      const res: ApiResult = await axiosInstance.get("/cats");
-      console.log(
-        "ressss..data",
-        res.error && res.error.response ? res.error.response : res.data
-      );
+      const res: AxiosResponse = await axiosInstance.get("/cats");
+      console.log("resss .data", res.data);
     } catch (error: unknown) {
       if (error instanceof AxiosError) {
         console.log("error", error.response!.data);
