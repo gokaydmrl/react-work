@@ -1,5 +1,5 @@
 import { useAuth0 } from "@auth0/auth0-react";
-import { createFileRoute, redirect, useRouter } from "@tanstack/react-router";
+import { createFileRoute, useRouter } from "@tanstack/react-router";
 import { useEffect } from "react";
 
 export const Route = createFileRoute("/about")({
