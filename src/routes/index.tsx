@@ -20,7 +20,7 @@ function About() {
       <div className="wrapper">
         <div>
           <p>
-            Hello <span className="boldFont">{user?.name}!</span> <br /> Click
+            Helloo <span className="boldFont">{user?.name}!</span> <br /> Click
             to get welcome message <br /> from AI
           </p>
         </div>
