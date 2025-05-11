@@ -12,7 +12,18 @@ function Login() {
     <div>
       <p>hello world</p>
       <button onClick={() => loginWithRedirect()}>Log In</button>;
-      <button onClick={() => logout()}>Log out</button>;
+      <button
+        onClick={() =>
+          logout({
+            logoutParams: {
+              returnTo: window.location.origin,
+            },
+          })
+        }
+      >
+        Log out
+      </button>
+      ;
     </div>
   );
 }
