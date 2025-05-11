@@ -1,14 +1,11 @@
-import * as React from "react";
+//import * as React from "react";
 import { Outlet, createRootRoute } from "@tanstack/react-router";
-
+import "../App.css";
+import "../index.css";
 export const Route = createRootRoute({
   component: RootComponent,
 });
 
 function RootComponent() {
-  return (
-    <React.Fragment>
-      <Outlet key={"outlet"} />
-    </React.Fragment>
-  );
+  return <Outlet key={"outlet"} />;
 }

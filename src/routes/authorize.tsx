@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-
+import "../App.css";
+import "../index.css";
 export const Route = createFileRoute("/authorize")({
   component: RouteComponent,
 });
