@@ -1,16 +1,20 @@
-import { useAuth0 } from "@auth0/auth0-react";
 import { createFileRoute } from "@tanstack/react-router";
 import "../index.css";
 import "../App.css";
 import { sseVoiceStream } from "../utils/SseVoiceStream";
 import RouterRootWrapper from "../components/routerRootWrapper";
+import { useRedirectToLogin } from "../hooks/useRedirectToLogin";
+import { useNavigate } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
-  component: About,
+  component: Welcome,
 });
 
-function About() {
-  const { user, isAuthenticated } = useAuth0();
-
+function Welcome() {
+  const navigate = useNavigate();
+  const { user, isAuthenticated } = useRedirectToLogin();
+  const redirectToLogin = () => {
+    return navigate({ to: "/authorize", replace: true, from: "/" });
+  };
   return (
     <RouterRootWrapper>
       <div className="wrapper">
@@ -27,7 +31,7 @@ function About() {
             }
             disabled={!isAuthenticated}
           >
-            Welcome Me
+            Welcome Me With AI Voice
           </button>
         </div>
       </div>
