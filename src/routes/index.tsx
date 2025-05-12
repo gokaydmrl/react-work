@@ -4,17 +4,13 @@ import "../App.css";
 import { sseVoiceStream } from "../utils/SseVoiceStream";
 import RouterRootWrapper from "../components/routerRootWrapper";
 import { useRedirectToLogin } from "../hooks/useRedirectToLogin";
-import { useNavigate } from "@tanstack/react-router";
 export const Route = createFileRoute("/")({
   component: Welcome,
 });
 
 function Welcome() {
-  const navigate = useNavigate();
   const { user, isAuthenticated } = useRedirectToLogin();
-  const redirectToLogin = () => {
-    return navigate({ to: "/authorize", replace: true, from: "/" });
-  };
+ 
   return (
     <RouterRootWrapper>
       <div className="wrapper">
