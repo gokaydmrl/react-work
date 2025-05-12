@@ -21,7 +21,7 @@ if (!rootElement.innerHTML) {
   const VITE_API_AUTH0_DOMAIN = import.meta.env.VITE_API_AUTH0_DOMAIN;
   const VITE_API_AUTH0_CLIENT_ID = import.meta.env.VITE_API_AUTH0_CLIENT_ID;
   const VITE_API_AUTH0_AUDIENCE = import.meta.env.VITE_API_AUTH0_AUDIENCE;
-  const VITE_API_AUTH0_SCOPE = import.meta.env.SCOPE;
+  const VITE_API_AUTH0_SCOPE = import.meta.env.VITE_API_AUTH0_SCOPE;
 
   root.render(
     <StrictMode>
