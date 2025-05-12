@@ -1,42 +1,13 @@
 import { RealtimePCMPlayer } from "./WavStreamPlayer";
-import { AppEventSource } from "./AppEventSource";
+import connect from "./connect";
 const realtimePCMPlayer = new RealtimePCMPlayer({ sampleRate: 24000 });
 
 export const sseVoiceStream = (username: string) => {
-  const urlDev = `${import.meta.env.VITE_API_URL}/getWelcome`;
   const isConnectionExist = localStorage.getItem("isConnectionExists");
   let res;
-  // const connect = () => {
-  //   const connection = new AppEventSource(urlDev, {
-  //     method: "GET",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "Cache-Control": "no-cache",
-  //       "Access-Control-Allow-Origin": "*",
-  //       "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-  //       "Access-Control-Allow-Headers": "Content-Type",
-  //       "Access-Control-Allow-Credentials": "true",
-  //       Connection: "keep-alive",
-  //       username,
-  //     },
-  //   });
-  //   return connection;
-  // }
+
   if (!isConnectionExist) {
-    res = new AppEventSource(urlDev, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Cache-Control": "no-cache",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Credentials": "true",
-        Connection: "keep-alive",
-        username,
-      },
-    });
-    localStorage.setItem("isConnectionExists", "true");
+    res = connect(username);
   }
   if (res) {
     res.onerror = (error) => {
@@ -53,19 +24,6 @@ export const sseVoiceStream = (username: string) => {
       }
     };
   } else {
-    res = new AppEventSource(urlDev, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        "Cache-Control": "no-cache",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
-        "Access-Control-Allow-Headers": "Content-Type",
-        "Access-Control-Allow-Credentials": "true",
-        Connection: "keep-alive",
-        username,
-      },
-    });
-    localStorage.setItem("isConnectionExists", "true");
+    res = connect(username);
   }
 };
