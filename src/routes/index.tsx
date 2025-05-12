@@ -3,7 +3,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import "../index.css";
 import "../App.css";
 import { sseVoiceStream } from "../utils/SseVoiceStream";
-import { useEffect } from "react";
 import RouterRootWrapper from "../components/routerRootWrapper";
 export const Route = createFileRoute("/")({
   component: About,
@@ -11,9 +10,6 @@ export const Route = createFileRoute("/")({
 
 function About() {
   const { user, isAuthenticated } = useAuth0();
-  useEffect(() => {
-    sseVoiceStream(user && user.name ? user.name : "kullanıcı");
-  }, [user, isAuthenticated]);
 
   return (
     <RouterRootWrapper>
