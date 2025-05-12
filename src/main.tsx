@@ -17,15 +17,20 @@ declare module "@tanstack/react-router" {
 const rootElement = document.getElementById("root")!;
 if (!rootElement.innerHTML) {
   const root = ReactDOM.createRoot(rootElement);
+
+  const VITE_API_AUTH0_DOMAIN = import.meta.env.VITE_API_AUTH0_DOMAIN;
+  const VITE_API_AUTH0_CLIENT_ID = import.meta.env.VITE_API_AUTH0_CLIENT_ID;
+  const VITE_API_AUTH0_AUDIENCE = import.meta.env.VITE_API_AUTH0_AUDIENCE;
+  const VITE_API_AUTH0_SCOPE = import.meta.env.SCOPE;
+
   root.render(
     <StrictMode>
       <Auth0Provider
-        domain="dev-uaefh4jccukgswpy.us.auth0.com"
-        clientId="BReyLFKRLpIBUWQBWWJEaIQTRRm03Fhc"
+        domain={VITE_API_AUTH0_DOMAIN}
+        clientId={VITE_API_AUTH0_CLIENT_ID}
         authorizationParams={{
-          audience: "https://dev-uaefh4jccukgswpy.us.auth0.com/api/v2/",
-          scope:
-            "read:current_user update:current_user_metadata openid profile email",
+          audience: VITE_API_AUTH0_AUDIENCE,
+          scope: VITE_API_AUTH0_SCOPE,
           redirect_uri: window.location.origin,
         }}
       >
