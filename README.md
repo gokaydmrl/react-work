@@ -23,6 +23,12 @@ This is a React-based web application that uses **Auth0 for authentication** and
 - ⚛️ **React + Vite Frontend**  
   Built with modern React tooling and Vite for blazing-fast builds.
 
+  
+
+
+https://github.com/user-attachments/assets/5b9a059c-05b5-48b7-b294-ca151fdb54d1
+
+
 ---
 
 ## 🧰 Tech Stack
