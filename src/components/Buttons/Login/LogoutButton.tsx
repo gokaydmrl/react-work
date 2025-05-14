@@ -1,8 +1,16 @@
 import { useAuth0 } from "@auth0/auth0-react";
+import { log } from "console";
 
 export const LogoutButton = () => {
   const { logout, isLoading, isAuthenticated } = useAuth0();
-
+  const logoutWithRemovingLocalStorage = () => {
+    localStorage.removeItem("isConnectionExists");
+    logout({
+      logoutParams: {
+        returnTo: window.location.origin,
+      },
+    });
+  };
   return (
     <div>
       {!isLoading && isAuthenticated && (
@@ -10,13 +18,7 @@ export const LogoutButton = () => {
           style={{
             zIndex: "100",
           }}
-          onClick={() =>
-            logout({
-              logoutParams: {
-                returnTo: window.location.origin,
-              },
-            })
-          }
+          onClick={() => logoutWithRemovingLocalStorage()}
         >
           Logout
         </button>
