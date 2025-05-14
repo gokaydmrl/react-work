@@ -4,16 +4,19 @@ import "../App.css";
 import { sseVoiceStream } from "../utils/SseVoiceStream";
 import RouterRootWrapper from "../components/routerRootWrapper";
 import { useRedirectToLogin } from "../hooks/useRedirectToLogin";
+import VoiceAnim from "../components/VoiceAnimation/VoiceAnim";
+
 export const Route = createFileRoute("/")({
   component: Welcome,
 });
 
 function Welcome() {
   const { user, isAuthenticated } = useRedirectToLogin();
- 
+
   return (
     <RouterRootWrapper>
       <div className="wrapper">
+        <VoiceAnim />
         <div>
           <p>
             Helloo <span className="boldFont">{user?.name}!</span> <br /> Click

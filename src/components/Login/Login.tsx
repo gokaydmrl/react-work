@@ -9,10 +9,10 @@ function LoginComponent() {
     <div
       style={{
         display: "flex",
-        flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
         height: "100%",
+        zIndex: "100",
       }}
     >
       {isAuthenticated && !isLoading ? <LogoutButton /> : <LoginButton />};
