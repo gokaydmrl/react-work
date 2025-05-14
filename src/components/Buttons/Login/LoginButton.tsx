@@ -9,7 +9,7 @@ export const LoginButton = () => {
       }}
       onClick={() => loginWithRedirect()}
     >
-      Log In
+      Login
     </button>
   );
 };

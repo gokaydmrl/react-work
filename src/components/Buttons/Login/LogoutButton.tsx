@@ -18,7 +18,7 @@ export const LogoutButton = () => {
             })
           }
         >
-          Logoutqwe
+          Logout
         </button>
       )}
     </div>
