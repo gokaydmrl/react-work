@@ -11,16 +11,9 @@ export const LogoutButton = () => {
     });
   };
   return (
-    <div>
+    <div style={{ zIndex: "100" }}>
       {!isLoading && isAuthenticated && (
-        <button
-          style={{
-            zIndex: "100",
-          }}
-          onClick={() => logoutWithRemovingLocalStorage()}
-        >
-          Logout
-        </button>
+        <button onClick={() => logoutWithRemovingLocalStorage()}>Logout</button>
       )}
     </div>
   );

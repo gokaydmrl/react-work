@@ -24,6 +24,13 @@ export class RealtimePCMPlayer {
     }
   }
 
+  async resume() {
+    if (this.audioContext.state === "suspended") {
+      await this.audioContext.resume();
+      console.log("AudioContext resumed");
+    }
+  }
+
   async processQueue() {
     while (this.queue.length > 0) {
       const pcmBuffer = this.queue.shift();

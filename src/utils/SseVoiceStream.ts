@@ -3,6 +3,7 @@ import connect from "./connect";
 const realtimePCMPlayer = new RealtimePCMPlayer({ sampleRate: 24000 });
 
 export const sseVoiceStream = (username: string) => {
+  realtimePCMPlayer.resume();
   const isConnectionExist = localStorage.getItem("isConnectionExists");
   let res;
 
@@ -15,6 +16,8 @@ export const sseVoiceStream = (username: string) => {
     };
 
     res.onmessage = (data) => {
+      console.log(data);
+
       const parsedData = JSON.parse(data.data);
 
       if (parsedData.type === "response.audio.delta") {

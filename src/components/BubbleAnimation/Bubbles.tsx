@@ -33,12 +33,7 @@ function Bubbles() {
         clear: false,
         detectRetina: true,
         fpsLimit: 120,
-        style: {
-          zIndex: "-10",
-          position: "fixed",
-          top: "0",
-          left: "0",
-        },
+
         key: "bubble",
         name: "Bubble",
         particles: {
@@ -123,27 +118,22 @@ function Bubbles() {
           },
         },
         background: {
-          zIndex: -10000,
           opacity: 0,
+          position: "absoulte",
+          zIndex: -100,
         },
       }) as ISourceOptions,
     []
   );
 
   return (
-    <div
-      style={{
-        zIndex: "-1",
-      }}
-    >
+    <div style={{ zIndex: -1 }}>
       {init ? (
         <Particles
           id="tsparticles"
           particlesLoaded={particlesLoaded}
           options={options}
-          style={{
-            zIndex: "-1",
-          }}
+          style={{ position: "absolute", zIndex: -100 }}
         />
       ) : (
         <div>Loading...</div>
